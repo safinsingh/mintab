@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>New Tab</title>
+        <link rel="icon" href="Newtablogo.png">
+    </head>
+    <style>
+        @font-face {
+            font-family: "publicsans";
+            src: url("PublicSans-Medium.otf");
+        }
+        body {
+            background-color: #0E0E0E;
+            color: white;
+            font-size:50px;
+            font-family: publicsans;
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -moz-transform: translateX(-50%) translateY(-50%);
+            -webkit-transform: translateX(-50%) translateY(-50%);
+            transform: translateX(-50%) translateY(-50%);
+            margin-top: -25px;
+        }
+    </style>
+    <script>
+        function startTime() {
+          var today = new Date();
+          var h = today.getHours();
+          var m = today.getMinutes();
+          var s = today.getSeconds();
+          m = checkTime(m);
+          s = checkTime(s);
+          document.getElementById('txt').innerHTML =
+          "The time is " + h + ":" + m + ":" + s;
+          var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+          if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+          return i;
+        }
+    </script>
+    <body onload="startTime()">
+        <div class="container">
+            <label id="lblGreetings"></label>
+            <div id="txt"></div>
+        </div>
+    </body>
+    <script>
+        var dt = new Date().toLocaleTimeString();;
+        var myDate = new Date();
+        var hrs = myDate.getHours();
+    
+        var greet;
+    
+        if (hrs < 12)
+            greet = 'Good Morning';
+        else if (hrs >= 12 && hrs <= 17)
+            greet = 'Good Afternoon';
+        else if (hrs >= 17 && hrs <= 24)
+            greet = 'Good Evening';
+    
+        document.getElementById('lblGreetings').innerHTML =
+            greet;
+    </script> 
+</html>
