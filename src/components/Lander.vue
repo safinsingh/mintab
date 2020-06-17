@@ -5,45 +5,53 @@
       <h2 v-text="minutes"></h2>
       <h2 v-text="seconds"></h2>
     </div>
-    <p>Made with <img src="../assets/logo.png"> by Safin Singh</p>
+    <p>
+      Made with
+      <a href="https://vuejs.org/">
+        <img src="../assets/logo.png" />
+      </a> by Safin Singh
+      <a href="https://github.com/safinsingh/mintab">
+        <img src="../assets/gh.svg" class="gh" />
+      </a>
+    </p>
   </div>
 </template>
 
 <script>
-
-import { getZeroPad } from './Filter'
+import { getZeroPad } from "./Filter";
 
 export default {
-  data () {
+  data() {
     return {
       hours: 0,
       minutes: 0,
       seconds: 0
-    }
+    };
   },
-  mounted () {
+  mounted() {
     this.$options.interval = setInterval(this.updateDateTime, 1000);
   },
-  beforeDestroy () {
+  beforeDestroy() {
     clearInterval(this.$options.interval);
   },
   methods: {
-    updateDateTime () {
-      let now = new Date()
-      this.hours = getZeroPad(now.getHours())
-      this.minutes = getZeroPad(now.getMinutes())
-      this.seconds = getZeroPad(now.getSeconds())
+    updateDateTime() {
+      let now = new Date();
+      this.hours = getZeroPad(now.getHours());
+      this.minutes = getZeroPad(now.getMinutes());
+      this.seconds = getZeroPad(now.getSeconds());
     }
   },
-  name: 'Lander',
-}
+  name: "Lander"
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-h2, p {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+h2,
+p {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-display: optional;
 }
 
@@ -66,11 +74,20 @@ p {
 
 .time h2 {
   font-weight: 700;
-  font-size: 8rem;
+  font-size: 8em;
   margin: 0.5rem 0rem;
 }
 
 img {
   height: 1em;
+  margin: 0rem 0.2em;
+  -webkit-transform: translateY(0.19em);
+  transform: translateY(0.19em);
+  transition: all 0.3s;
+}
+
+img:hover {
+  -webkit-transform: translateY(-0.19em);
+  transform: translateY(-0.19em);
 }
 </style>
