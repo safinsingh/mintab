@@ -1,3 +1,6 @@
+const path = require("path");
+
 module.exports = {
-    publicPath: '/mintab/'
+  outputDir: path.resolve(__dirname, "./docs"),
+  publicPath: '/mintab/'
 }
