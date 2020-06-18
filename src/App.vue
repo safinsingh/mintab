@@ -28,7 +28,7 @@ export default {
 <style>
 html,
 body {
-  background-color: #0e0e0e;
+  background-color: #282a36;
 }
 * {
   cursor: none;
